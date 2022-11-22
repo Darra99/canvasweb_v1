@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th ="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Crear solución | Canvas Web</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/vendors/mdi/css/materialdesignicons.min.css}"
+          media="screen,projection"  />
+    <link rel="stylesheet" type="text/css" th:href="@{/vendors/flag-icon-css/css/flag-icon.min.css}"
+          media="screen,projection"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/vendors/css/vendor.bundle.base.css}"
+          media="screen,projection"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"
+          media="screen,projection"/>
+    <link rel="shortcut icon" type="text/css" th:href="@{/img/favicon.png}"
+          media="screen,projection"/>
+</head>
+<body>
+<div class="container-scroller">
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <div class="text-center sidebar-brand-wrapper d-flex align-items-center">
+            <!--<a class="sidebar-brand brand-logo" href="index.html"><img src="assets/images/logo.svg" alt="logo" /></a>
+            <a class="sidebar-brand brand-logo-mini pl-4 pt-3" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>-->
+        </div>
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/index}">
+                    <i class="mdi mdi-home menu-icon"></i>
+                    <span class="menu-title">Lienzo Lean Canvas</span>
+                </a>
+            </li>
+            <li class="nav-item">
+            <span class="nav-link" href="#">
+              <span class="menu-title">Bloques</span>
+            </span>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#ui-basic-problem" aria-expanded="false" aria-controls="ui-basic">
+                    <i class="mdi mdi-comment-question-outline menu-icon"></i>
+                    <span class="menu-title">Problema</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="ui-basic-problem">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item">
+                            <a th:href="@{/problem}" class="nav-link">Hipótesis</a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/howsolveproblem}" class="nav-link">¿Quién resuelve?</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#ui-basic-segment" aria-expanded="false" aria-controls="ui-basic">
+                    <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                    <span class="menu-title">Segmento</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="ui-basic-segment">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item">
+                            <a th:href="@{/segment}" class="nav-link">Arquetipo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/benefits}" class="nav-link">Beneficiarios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/earlyadopters}" class="nav-link">Early Adopters</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#ui-basic-uvp" aria-expanded="false" aria-controls="ui-basic">
+                    <i class="mdi mdi-diamond menu-icon"></i>
+                    <span class="menu-title">PUV</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="ui-basic-uvp">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/uvp}">Propuestas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/highconcept}">High Concept</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/socialimpact}">Impacto Social</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/ods}">ODS</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/solution}">
+                    <i class="mdi mdi-lightbulb-outline menu-icon"></i>
+                    <span class="menu-title">Solución</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/channels}">
+                    <i class="mdi mdi-cart menu-icon"></i>
+                    <span class="menu-title">Canales</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/metrics}">
+                    <i class="mdi mdi-chart-bar menu-icon"></i>
+                    <span class="menu-title">Métricas</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/unfairadvantage}">
+                    <i class="mdi mdi-run menu-icon"></i>
+                    <span class="menu-title">Ventaja Injusta</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#ui-basic-finance" aria-expanded="false" aria-controls="ui-basic">
+                    <i class="mdi mdi-square-inc-cash menu-icon"></i>
+                    <span class="menu-title">Finanzas</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="ui-basic-finance">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/income}">Ingresos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/costs}">Costos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/breakeven}">Punto de Equilibrio</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+            <span class="nav-link" href="#">
+              <span class="menu-title"> Administración </span>
+            </span>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="mdi mdi-settings menu-icon"></i>
+                    <span class="menu-title">Panel de configuración</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="mdi mdi-tooltip-edit menu-icon"></i>
+                    <span class="menu-title">Personalizar Vista</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="mdi mdi-file-document-box menu-icon"></i>
+                    <span class="menu-title">Tutorial de uso</span>
+                </a>
+            </li>
+            <li class="nav-item sidebar-actions">
+                <div class="nav-link">
+                    <div class="mt-4">
+                        <ul class="mt-4 pl-0">
+                            <li>Notificaciones</li>
+                        </ul>
+                        <ul class="mt-4 pl-0">
+                            <li>Salir</li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <div class="container-fluid page-body-wrapper">
+        <div id="theme-settings" class="settings-panel">
+            <i class="settings-close mdi mdi-close"></i>
+            <p class="settings-heading">SIDEBAR SKINS</p>
+            <div class="sidebar-bg-options selected" id="sidebar-default-theme">
+                <div class="img-ss rounded-circle bg-light border mr-3"></div> Default
+            </div>
+            <div class="sidebar-bg-options" id="sidebar-dark-theme">
+                <div class="img-ss rounded-circle bg-dark border mr-3"></div> Dark
+            </div>
+            <p class="settings-heading mt-2">HEADER SKINS</p>
+            <div class="color-tiles mx-0 px-4">
+                <div class="tiles light"></div>
+                <div class="tiles dark"></div>
+            </div>
+        </div>
+        <nav class="navbar col-lg-12 col-12 p-lg-0 fixed-top d-flex flex-row">
+            <div class="navbar-menu-wrapper d-flex align-items-stretch justify-content-between">
+                <a class="navbar-brand brand-logo-mini align-self-center d-lg-none" href="../index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
+                <button class="navbar-toggler navbar-toggler align-self-center mr-2" type="button" data-toggle="minimize">
+                    <i class="mdi mdi-menu"></i>
+                </button>
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
+                            <i class="mdi mdi-bell-outline"></i>
+                            <span class="count count-varient1">7</span>
+                        </a>
+                        <div class="dropdown-menu navbar-dropdown navbar-dropdown-large preview-list" aria-labelledby="notificationDropdown">
+                            <h6 class="p-3 mb-0">Notificaciones</h6>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <img src="assets/images/faces/face4.jpg" alt="" class="profile-pic" />
+                                </div>
+                                <div class="preview-item-content">
+                                    <p class="mb-0"> Profesor Jairo <span class="text-small text-muted">Reviso tu lienzo.</span>
+                                    </p>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <p class="p-3 mb-0">Mirar todas las notificaciones</p>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown d-none d-sm-flex">
+                        <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown">
+                            <i class="mdi mdi-email-outline"></i>
+                            <span class="count count-varient2">5</span>
+                        </a>
+                        <div class="dropdown-menu navbar-dropdown navbar-dropdown-large preview-list" aria-labelledby="messageDropdown">
+                            <h6 class="p-3 mb-0">Mensajes</h6>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-item-content flex-grow">
+                                    <span class="badge badge-pill badge-success">Importante</span>
+                                    <p class="text-small text-muted ellipsis mb-0"> Revisión del docente </p>
+                                </div>
+                                <p class="text-small text-muted align-self-start"> 4:10 PM </p>
+                            </a>
+                            <h6 class="p-3 mb-0">Mirar todas las actividades</h6>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav navbar-nav-right ml-lg-auto">
+                    <li class="nav-item nav-profile dropdown border-0">
+                        <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown">
+                            <img class="nav-profile-img mr-2" alt="" src="https://cdn-icons-png.flaticon.com/512/74/74472.png" />
+                            <span class="profile-name">Danielito Sebastino</span>
+                        </a>
+                        <div class="dropdown-menu navbar-dropdown w-100" aria-labelledby="profileDropdown">
+                            <a class="dropdown-item" href="#">
+                                <i class="mdi mdi-cached mr-2 text-success"></i> Registros de actividad </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="mdi mdi-account mr-2 text-success"></i> Perfil </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="mdi mdi-logout mr-2 text-primary"></i> Salir </a>
+                        </div>
+                    </li>
+                </ul>
+                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+                    <span class="mdi mdi-menu"></span>
+                </button>
+            </div>
+        </nav>
+
+
+
+        <div class="main-panel">
+            <div class="content-wrapper pb-0">
+                <div class="page-header flex-wrap">
+                    <h3 class="mb-0">Solución<span class="pl-0 h6 pl-sm-2 text-muted d-inline-block">Aquí puedes ver tus anotaciones del módulo...</span>
+                    </h3>
+                    <div class="d-flex">
+                        <button type="button" class="btn btn-warning btn-icon-text">
+                            <i class="mdi mdi-keyboard-backspace btn-icon-prepend"></i><a th:href="@{/solution}" class="text-decoration-none text-dark">Volver</a></button>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-6 grid-margin stretch-card">
+                    <img src="https://img.freepik.com/vector-gratis/equipo-gestores-crisis-resolviendo-problemas-empresarios-empleados-bombilla-desenredando-marana-ilustracion-vector-trabajo-equipo-solucion-concepto-gestion_74855-10162.jpg" class="img-fluid " alt="Responsive image">
+                    <div class="card">
+                        <div class="card-body">
+                            <form class="forms-sample" th:action="@{/solution}" th:object="${solution}" method="POST">
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1">Descripción</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" th:field="*{descripcionSolution}" placeholder="Ingresa tu descripción aquí."></textarea>
+                                    <small class="form-text text-danger" th:if="${#fields.hasErrors('descripcionSolution')}"
+                                           th:errors="*{descripcionSolution}">
+                                    </small>
+                                </div>
+                                <button class="btn btn-primary mr-2"> Guardar </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <footer class="footer">
+                <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                    <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © Devs 2022</span>
+                </div>
+            </footer>
+        </div>
+
+
+
+        <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+</div>
+<!-- container-scroller -->
+<!-- plugins:js -->
+<script th:src="@{/vendors/js/vendor.bundle.base.js}"></script>
+<script th:src="@{/vendors/select2/select2.min.js}"></script>
+<script th:src="@{/vendors/typeahead.js/typeahead.bundle.min.js}"></script>
+<script th:src="@{/js/off-canvas.js}"></script>
+<script th:src="@{/js/hoverable-collapse.js}"></script>
+<script th:src="@{/js/misc.js}"></script>
+<script th:src="@{/js/file-upload.js}"></script>
+<script th:src="@{/js/typeahead.js}"></script>
+<script th:src="@{/js/select2.js}"></script>
+<!-- End custom js for this page -->
+
+</body>
+</html>

@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th ="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>ODS | Canvas Web</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/vendors/mdi/css/materialdesignicons.min.css}"
+          media="screen,projection"  />
+    <link rel="stylesheet" type="text/css" th:href="@{/vendors/flag-icon-css/css/flag-icon.min.css}"
+          media="screen,projection"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/vendors/css/vendor.bundle.base.css}"
+          media="screen,projection"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"
+          media="screen,projection"/>
+    <link rel="shortcut icon" type="text/css" th:href="@{/img/favicon.png}"
+          media="screen,projection"/>
+</head>
+<body>
+<div class="container-scroller">
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <div class="text-center sidebar-brand-wrapper d-flex align-items-center">
+            <!--<a class="sidebar-brand brand-logo" href="index.html"><img src="assets/images/logo.svg" alt="logo" /></a>
+            <a class="sidebar-brand brand-logo-mini pl-4 pt-3" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>-->
+        </div>
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/index}">
+                    <i class="mdi mdi-home menu-icon"></i>
+                    <span class="menu-title">Lienzo Lean Canvas</span>
+                </a>
+            </li>
+            <li class="nav-item">
+            <span class="nav-link" href="#">
+              <span class="menu-title">Bloques</span>
+            </span>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#ui-basic-problem" aria-expanded="false" aria-controls="ui-basic">
+                    <i class="mdi mdi-comment-question-outline menu-icon"></i>
+                    <span class="menu-title">Problema</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="ui-basic-problem">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item">
+                            <a th:href="@{/problem}" class="nav-link">Hipótesis</a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/howsolveproblem}" class="nav-link">¿Quién resuelve?</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#ui-basic-segment" aria-expanded="false" aria-controls="ui-basic">
+                    <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                    <span class="menu-title">Segmento</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="ui-basic-segment">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item">
+                            <a th:href="@{/segment}" class="nav-link">Arquetipo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/benefits}" class="nav-link">Beneficiarios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/earlyadopters}" class="nav-link">Early Adopters</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#ui-basic-uvp" aria-expanded="false" aria-controls="ui-basic">
+                    <i class="mdi mdi-diamond menu-icon"></i>
+                    <span class="menu-title">PUV</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="ui-basic-uvp">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/uvp}">Propuestas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/highconcept}">High Concept</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/socialimpact}">Impacto Social</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/ods}">ODS</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/solution}">
+                    <i class="mdi mdi-lightbulb-outline menu-icon"></i>
+                    <span class="menu-title">Solución</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="mdi mdi-cart menu-icon"></i>
+                    <span class="menu-title">Canales</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/metrics}">
+                    <i class="mdi mdi-chart-bar menu-icon"></i>
+                    <span class="menu-title">Métricas</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/unfairadvantage}">
+                    <i class="mdi mdi-run menu-icon"></i>
+                    <span class="menu-title">Ventaja Injusta</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#ui-basic-finance" aria-expanded="false" aria-controls="ui-basic">
+                    <i class="mdi mdi-square-inc-cash menu-icon"></i>
+                    <span class="menu-title">Finanzas</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="ui-basic-finance">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/income}">Ingresos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/costs}">Costos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/breakeven}">Punto de Equilibrio</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+            <span class="nav-link" href="#">
+              <span class="menu-title"> Administración </span>
+            </span>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="mdi mdi-settings menu-icon"></i>
+                    <span class="menu-title">Panel de configuración</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="mdi mdi-tooltip-edit menu-icon"></i>
+                    <span class="menu-title">Personalizar Vista</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="mdi mdi-file-document-box menu-icon"></i>
+                    <span class="menu-title">Tutorial de uso</span>
+                </a>
+            </li>
+            <li class="nav-item sidebar-actions">
+                <div class="nav-link">
+                    <div class="mt-4">
+                        <ul class="mt-4 pl-0">
+                            <li>Notificaciones</li>
+                        </ul>
+                        <ul class="mt-4 pl-0">
+                            <li>Salir</li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <div class="container-fluid page-body-wrapper">
+        <div id="theme-settings" class="settings-panel">
+            <i class="settings-close mdi mdi-close"></i>
+            <p class="settings-heading">SIDEBAR SKINS</p>
+            <div class="sidebar-bg-options selected" id="sidebar-default-theme">
+                <div class="img-ss rounded-circle bg-light border mr-3"></div> Default
+            </div>
+            <div class="sidebar-bg-options" id="sidebar-dark-theme">
+                <div class="img-ss rounded-circle bg-dark border mr-3"></div> Dark
+            </div>
+            <p class="settings-heading mt-2">HEADER SKINS</p>
+            <div class="color-tiles mx-0 px-4">
+                <div class="tiles light"></div>
+                <div class="tiles dark"></div>
+            </div>
+        </div>
+        <nav class="navbar col-lg-12 col-12 p-lg-0 fixed-top d-flex flex-row">
+            <div class="navbar-menu-wrapper d-flex align-items-stretch justify-content-between">
+                <a class="navbar-brand brand-logo-mini align-self-center d-lg-none" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
+                <button class="navbar-toggler navbar-toggler align-self-center mr-2" type="button" data-toggle="minimize">
+                    <i class="mdi mdi-menu"></i>
+                </button>
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
+                            <i class="mdi mdi-bell-outline"></i>
+                            <span class="count count-varient1">7</span>
+                        </a>
+                        <div class="dropdown-menu navbar-dropdown navbar-dropdown-large preview-list" aria-labelledby="notificationDropdown">
+                            <h6 class="p-3 mb-0">Notificaciones</h6>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <img src="assets/images/faces/face4.jpg" alt="" class="profile-pic" />
+                                </div>
+                                <div class="preview-item-content">
+                                    <p class="mb-0"> Profesor Jairo <span class="text-small text-muted">Reviso tu lienzo.</span>
+                                    </p>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <p class="p-3 mb-0">Mirar todas las notificaciones</p>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown d-none d-sm-flex">
+                        <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown">
+                            <i class="mdi mdi-email-outline"></i>
+                            <span class="count count-varient2">5</span>
+                        </a>
+                        <div class="dropdown-menu navbar-dropdown navbar-dropdown-large preview-list" aria-labelledby="messageDropdown">
+                            <h6 class="p-3 mb-0">Mensajes</h6>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-item-content flex-grow">
+                                    <span class="badge badge-pill badge-success">Importante</span>
+                                    <p class="text-small text-muted ellipsis mb-0"> Revisión del docente </p>
+                                </div>
+                                <p class="text-small text-muted align-self-start"> 4:10 PM </p>
+                            </a>
+                            <h6 class="p-3 mb-0">Mirar todas las actividades</h6>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav navbar-nav-right ml-lg-auto">
+                    <li class="nav-item nav-profile dropdown border-0">
+                        <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown">
+                            <img class="nav-profile-img mr-2" alt="" src="https://cdn-icons-png.flaticon.com/512/74/74472.png" />
+                            <span class="profile-name">Danielito Sebastino</span>
+                        </a>
+                        <div class="dropdown-menu navbar-dropdown w-100" aria-labelledby="profileDropdown">
+                            <a class="dropdown-item" href="#">
+                                <i class="mdi mdi-cached mr-2 text-success"></i> Registros de actividad </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="mdi mdi-account mr-2 text-success"></i> Perfil </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="mdi mdi-logout mr-2 text-primary"></i> Salir </a>
+                        </div>
+                    </li>
+                </ul>
+                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+                    <span class="mdi mdi-menu"></span>
+                </button>
+            </div>
+        </nav>
+        <div class="main-panel">
+            <div class="content-wrapper pb-0">
+
+                <div class="container-fluid">
+                    <div class="px-lg-5">
+                        <div class="pb-5">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/ONU_%E2%80%93_Objetivos_de_Desarrollo_Sostenible_%28Isologotipo%29.svg/1200px-ONU_%E2%80%93_Objetivos_de_Desarrollo_Sostenible_%28Isologotipo%29.svg.png" alt=""
+                                 width="300px" height="300px" class="img-fluid rounded mx-auto d-block">
+                            <!-- For demo purpose -->
+                        </div>
+
+
+
+                        <div class="page-header flex-wrap">
+                            <h3 class="mb-0"> ¡Bienvenido Danielito Sebastino! <span class="pl-0 h6 pl-sm-2 text-muted d-inline-block">Aquí podrás administrar tus ODS.</span>
+                            </h3>
+                            <div class="d-flex">
+                                <button type="button" class="btn btn-primary btn-icon-text">
+                                    <i class="mdi mdi-note-plus btn-icon-prepend"></i><a th:href="@{/ods/create}" class="text-decoration-none text-white">Agregar ODS</a></button>
+                            </div>
+                        </div>
+
+
+                        <div class="alert alert-success alert-dismissible" th:if="${success != null}">
+                            <label th:text="${success}"></label>
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        </div>
+
+                        <div class="alert alert-danger alert-dismissible" th:if="${error != null}">
+                            <label th:text="${error}"></label>
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        </div>
+
+                        <div class="alert alert-warning alert-dismissible" th:if="${warning != null}">
+                            <label th:text="${warning}"></label>
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        </div>
+
+                        <div class="alert alert-info alert-dismissible" th:if="${info != null}">
+                            <label th:text="${info}"></label>
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        </div>
+
+
+
+                        <div class="col-lg-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title text-center">Mis ODS</h4>
+                                    <p class="card-description">Aquí podrás ver tus objetivos con la meta personalizada.</p>
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+                                            <thead>
+                                            <tr>
+                                                <th>ODS</th>
+                                                <th>Meta</th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr th:each="odsselect : ${odsselect}">
+                                                <td style="word-wrap: break-word;
+                                                    word-break: break-all;
+                                                    white-space: normal !important;
+                                                    text-align: justify;">
+                                                    <span th:text="${odsselect.ods.descripcionOds}"></span>
+                                                    <img th:src="${odsselect.ods.imgOds}" class="img-thumbnail"/>
+                                                </td>
+                                                <td style="word-wrap: break-word;
+                                                    word-break: break-all;
+                                                    white-space: normal !important;
+                                                    text-align: justify;"
+                                                    th:text="${odsselect.descripcionOdsSelect}">
+                                                </td>
+                                                <td>
+                                                    <a th:href="@{/ods/delete/{id}(id=${odsselect.getIdOdsSelect()})}" class="btn btn-danger">Eliminar</a>
+                                                    <a th:href="@{/ods/edit/{id}(id=${odsselect.getIdOdsSelect()})}" class="btn btn-info">Editar</a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- End -->
+                        <div class="row py-5">
+                            <div class="col-lg-12 mx-auto">
+                                <div class="d-flex">
+                                    <div class="text-white p-5 shadow-sm rounded banner">
+                                        <h1 class="display-4">El 25 de septiembre de 2015...</h1>
+                                        <p class="lead">los líderes mundiales adoptaron un conjunto de objetivos globales para erradicar la pobreza,
+                                            proteger el planeta y asegurar la prosperidad para todos como parte de una nueva agenda de desarrollo sostenible.
+                                            Cada objetivo tiene metas específicas que deben alcanzarse en los próximos 15 años.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row">
+                            <!-- Gallery item -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                                <div class="bg-white rounded shadow-sm"><img src="http://www.un.org/sustainabledevelopment/es/wp-content/uploads/sites/3/2016/01/S_SDG_Icons-01-01.jpg" alt="" class="img-fluid card-img-top">
+                                    <div class="p-4">
+                                        <h5> <a href="https://www.un.org/sustainabledevelopment/es/poverty/" class="text-dark" target="_blank">Fin de la pobreza</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End -->
+
+                            <!-- Gallery item -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                                <div class="bg-white rounded shadow-sm"><img src="http://www.un.org/sustainabledevelopment/es/wp-content/uploads/sites/3/2016/01/S_SDG_Icons-01-02.jpg" alt="" class="img-fluid card-img-top">
+                                    <div class="p-4">
+                                        <h5> <a href="https://www.un.org/sustainabledevelopment/es/hunger/" class="text-dark" target="_blank">Hambre cero</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End -->
+
+                            <!-- Gallery item -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                                <div class="bg-white rounded shadow-sm"><img src="http://www.un.org/sustainabledevelopment/es/wp-content/uploads/sites/3/2016/01/S_SDG_Icons-01-03.jpg" alt="" class="img-fluid card-img-top">
+                                    <div class="p-4">
+                                        <h5> <a href="https://www.un.org/sustainabledevelopment/es/health/" class="text-dark" target="_blank">Salud y bienestar</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End -->
+
+                            <!-- Gallery item -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                                <div class="bg-white rounded shadow-sm"><img src="http://www.un.org/sustainabledevelopment/es/wp-content/uploads/sites/3/2016/01/S_SDG_Icons-01-04.jpg" alt="" class="img-fluid card-img-top">
+                                    <div class="p-4">
+                                        <h5> <a href="https://www.un.org/sustainabledevelopment/es/education/" class="text-dark" target="_blank">Educación de calidad</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End -->
+
+                            <!-- Gallery item -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                                <div class="bg-white rounded shadow-sm"><img src="http://www.un.org/sustainabledevelopment/es/wp-content/uploads/sites/3/2016/01/S_SDG_Icons-01-05.jpg" alt="" class="img-fluid card-img-top">
+                                    <div class="p-4">
+                                        <h5> <a href="https://www.un.org/sustainabledevelopment/es/gender-equality/" class="text-dark" target="_blank">Igualdad de género</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End -->
+
+                            <!-- Gallery item -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                                <div class="bg-white rounded shadow-sm"><img src="http://www.un.org/sustainabledevelopment/es/wp-content/uploads/sites/3/2016/01/S_SDG_Icons-01-06.jpg" alt="" class="img-fluid card-img-top">
+                                    <div class="p-4">
+                                        <h5> <a href="https://www.un.org/sustainabledevelopment/es/water-and-sanitation/" class="text-dark" target="_blank">Agua limpia y saneamiento</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End -->
+
+                            <!-- Gallery item -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                                <div class="bg-white rounded shadow-sm"><img src="http://www.un.org/sustainabledevelopment/es/wp-content/uploads/sites/3/2016/01/S_SDG_Icons-01-07.jpg" alt="" class="img-fluid card-img-top">
+                                    <div class="p-4">
+                                        <h5> <a href="https://www.un.org/sustainabledevelopment/es/energy/" class="text-dark" target="_blank">Energía asequible y no contaminante</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End -->
+
+                            <!-- Gallery item -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                                <div class="bg-white rounded shadow-sm"><img src="http://www.un.org/sustainabledevelopment/es/wp-content/uploads/sites/3/2016/01/S_SDG_Icons-01-08.jpg" alt="" class="img-fluid card-img-top">
+                                    <div class="p-4">
+                                        <h5> <a href="https://www.un.org/sustainabledevelopment/es/economic-growth/" class="text-dark" target="_blank">Trabajo decente y crecimiento económico</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End -->
+
+                            <!-- Gallery item -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                                <div class="bg-white rounded shadow-sm"><img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/sites/3/2015/09/S_SDG_Icons-01-09.jpg" alt="" class="img-fluid card-img-top">
+                                    <div class="p-4">
+                                        <h5> <a href="https://www.un.org/sustainabledevelopment/es/infrastructure/" class="text-dark" target="_blank">Industria, inovación e infraestructura</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End -->
+
+                            <!-- Gallery item -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                                <div class="bg-white rounded shadow-sm"><img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/sites/3/2015/09/S_SDG_Icons-01-10-1.jpg" alt="" class="img-fluid card-img-top">
+                                    <div class="p-4">
+                                        <h5> <a href="https://www.un.org/sustainabledevelopment/es/inequality/" class="text-dark" target="_blank">Reducción de la desigualdades</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End -->
+
+                            <!-- Gallery item -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                                <div class="bg-white rounded shadow-sm"><img src="http://www.un.org/sustainabledevelopment/es/wp-content/uploads/sites/3/2016/01/S_SDG_Icons-01-11.jpg" alt="" class="img-fluid card-img-top">
+                                    <div class="p-4">
+                                        <h5> <a href="https://www.un.org/sustainabledevelopment/es/cities/" class="text-dark" target="_blank">Ciudades y comunidades sostenibles</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End -->
+
+                            <!-- Gallery item -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                                <div class="bg-white rounded shadow-sm"><img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/sites/3/2015/09/S_SDG_Icons-01-12.jpg" alt="" class="img-fluid card-img-top">
+                                    <div class="p-4">
+                                        <h5> <a href="https://www.un.org/sustainabledevelopment/es/sustainable-consumption-production/" class="text-dark" target="_blank">Producción y consumo responsable</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End -->
+
+                            <!-- Gallery item -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                                <div class="bg-white rounded shadow-sm"><img src="http://www.un.org/sustainabledevelopment/es/wp-content/uploads/sites/3/2016/01/S_SDG_Icons-01-13.jpg" alt="" class="img-fluid card-img-top">
+                                    <div class="p-4">
+                                        <h5> <a href="https://www.un.org/sustainabledevelopment/es/climate-change-2/" class="text-dark" target="_blank">Acción por el clima</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End -->
+
+                            <!-- Gallery item -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                                <div class="bg-white rounded shadow-sm"><img src="http://www.un.org/sustainabledevelopment/es/wp-content/uploads/sites/3/2016/01/S_SDG_Icons-01-14.jpg" alt="" class="img-fluid card-img-top">
+                                    <div class="p-4">
+                                        <h5> <a href="https://www.un.org/sustainabledevelopment/es/oceans/" class="text-dark" target="_blank">Vida submarina</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End -->
+
+                            <!-- Gallery item -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                                <div class="bg-white rounded shadow-sm"><img src="http://www.un.org/sustainabledevelopment/es/wp-content/uploads/sites/3/2016/01/S_SDG_Icons-01-15.jpg" alt="" class="img-fluid card-img-top">
+                                    <div class="p-4">
+                                        <h5> <a href="https://www.un.org/sustainabledevelopment/es/biodiversity/" class="text-dark" target="_blank">Vida de ecosistemas terrestres</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End -->
+
+                            <!-- Gallery item -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                                <div class="bg-white rounded shadow-sm"><img src="http://www.un.org/sustainabledevelopment/es/wp-content/uploads/sites/3/2016/01/S_SDG_Icons-01-16.jpg" alt="" class="img-fluid card-img-top">
+                                    <div class="p-4">
+                                        <h5> <a href="https://www.un.org/sustainabledevelopment/es/peace-justice/" class="text-dark" target="_blank">Paz, justicia e instituciones sólidas</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End -->
+
+                            <!-- Gallery item -->
+                            <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                                <div class="bg-white rounded shadow-sm"><img src="http://www.un.org/sustainabledevelopment/es/wp-content/uploads/sites/3/2016/01/S_SDG_Icons-01-17.jpg" alt="" class="img-fluid card-img-top">
+                                    <div class="p-4">
+                                        <h5> <a href="https://www.un.org/sustainabledevelopment/es/globalpartnerships/" class="text-dark" target="_blank">Alianzas para lograr los objetivos</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End -->
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <footer class="footer">
+                <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                    <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © Devs 2022</span>
+                </div>
+            </footer>
+        </div>
+        <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+</div>
+<!-- container-scroller -->
+<!-- plugins:js -->
+<script th:src="@{/vendors/js/vendor.bundle.base.js}"></script>
+<script th:src="@{/vendors/select2/select2.min.js}"></script>
+<script th:src="@{/vendors/typeahead.js/typeahead.bundle.min.js}"></script>
+<script th:src="@{/js/off-canvas.js}"></script>
+<script th:src="@{/js/hoverable-collapse.js}"></script>
+<script th:src="@{/js/misc.js}"></script>
+<script th:src="@{/js/file-upload.js}"></script>
+<script th:src="@{/js/typeahead.js}"></script>
+<script th:src="@{/js/select2.js}"></script>
+<!-- End custom js for this page -->
+</body>
+</html>
