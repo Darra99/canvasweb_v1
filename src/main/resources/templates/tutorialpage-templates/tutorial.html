@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Punto de equilibrio | Canvas Web</title>
+    <title>Manual de Usuario | Canvas Web</title>
     <link rel="stylesheet" type="text/css" th:href="@{/vendors/mdi/css/materialdesignicons.min.css}"
           media="screen,projection"  />
     <link rel="stylesheet" type="text/css" th:href="@{/vendors/flag-icon-css/css/flag-icon.min.css}"
@@ -260,71 +260,120 @@
         </nav>
         <div class="main-panel">
             <div class="content-wrapper pb-0">
-                <div class="page-header flex-wrap">
-                    <h3 class="mb-0">Punto de equilibrio<span class="pl-0 h6 pl-sm-2 text-muted d-inline-block">Aquí puedes ver tus anotaciones del módulo...</span>
-                    </h3>
-                    <div class="d-flex">
-                        <button type="button" class="btn btn-primary btn-icon-text">
-                            <i class="mdi mdi-note-plus btn-icon-prepend"></i><a th:href="@{/breakeven/create}" class="text-decoration-none text-white">Agregar</a></button>
-                    </div>
-                </div>
 
 
-                <div class="alert alert-success alert-dismissible" th:if="${success != null}">
-                    <label th:text="${success}"></label>
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                </div>
 
-                <div class="alert alert-danger alert-dismissible" th:if="${error != null}">
-                    <label th:text="${error}"></label>
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                </div>
+                <header class="text-center">
+                    <img class="img-fluid" src="https://www.incae.edu/sites/default/files/styles/firehose-main-desktop/public/lean_canvas_0.png?itok=EMGvO_QQ">
+                    <h1>Lienzo Lean Canvas</h1>
+                    <p class="text-muted font-italic mb-2">Es una representación gráfica que sirve para el desarrollo estratégico de un modelo de negocio. Se divide en 9 módulos y es usado, comúnmente,
+                        como una plantilla para plasmar los elementos básicos de cualquier idea de negocio.
+                    </p>
+                    <hr>
+                    <p>Podríamos decir que, del mismo modo que un arquitecto diseña planos para la construcción de un edificio, un emprendedor crea un modelo para definir su propuesta de valor,
+                        organizar sus recursos humanos, y sentar las bases operativas, administrativas y financieras de su empresa.</p>
+                </header>
+                <p>En este sentido, también se puede establecer como una manera de visualizar mejor las estrategias que se aplicarán en las estructuras y procesos de un modelo económico empresarial.</p>
+                <p>Los 9 módulos del Business Model Canvas cubren las cuatro áreas principales de un negocio:</p>
+                    <ol>
+                        <li>Clientes.</li>
+                        <li>Oferta.</li>
+                        <li>Infraestructura.</li>
+                        <li>Viabilidad económica.</li>
+                    </ol>
+                <p>Pasos para realizar el lienzo Canvas</p>
+                <ol>
+                    <li>Reúne a tu equipo de trabajo.</li>
+                    <li>Establece el segmento de mercado.</li>
+                    <li>Desarrolla tu propuesta de valor.</li>
+                    <li>¿Cómo conectarás con los clientes?</li>
+                    <li>Estrategias para relacionarte con el cliente.</li>
+                    <li>¿De dónde provendrán tus ingresos?</li>
+                    <li>Define las actividades clave.</li>
+                    <li>Establece los recursos clave.</li>
+                </ol>
 
-                <div class="alert alert-warning alert-dismissible" th:if="${warning != null}">
-                    <label th:text="${warning}"></label>
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                </div>
 
-                <div class="alert alert-info alert-dismissible" th:if="${info != null}">
-                    <label th:text="${info}"></label>
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                </div>
+                <header class="text-center">
+                    <h3 class="display-4">Manual del aplicativo</h3>
+                    <p class="text-muted font-italic mb-0">Hola te damos la bienvenida, para nosotros es muy importante que no solo cuentes con una herramienta práctica para trabajar en tu idea de negocio o proyecto
+                        y es por eso que te daremos una guía detallada, para entender el manejo de los módulos de manera correcta y un ejemplo que no necesariamente se debe seguir en ese orden, sin embargo,
+                        ayudará a entender mejor como se debe llevar el proceso de tu proyecto.</p>
+                    <p class="text-muted font-italic mb-0">Para empezar, es necesario comprender que es un modelo de negocio lean canvas y saber también que bloque figura como principal para un correcto diligenciamiento:</p>
+                </header>
 
-
-                <div class="col-lg-12 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title text-center">Punto de equilibrio</h4>
-                            <p class="card-description">El punto de equilibrio es un término que sirve para definir el momento en que una empresa cubre sus costes fijos y variables. En otras palabras, es cuando los ingresos y los egresos están al mismo nivel y, por lo tanto, no hay ganancias ni pérdidas.
-                            </p>
-                            <div class="table-responsive">
-                                <table class="table table-striped">
-                                    <thead>
-                                    <tr>
-                                        <th>Descripción</th>
-                                        <th>Acciones</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr th:each="breakeven : ${breakeven}">
-                                        <td style="word-wrap: break-word;
-                                            word-break: break-all;
-                                            white-space: normal !important;
-                                            text-align: justify;"
-                                            th:text="${breakeven.descripcionBreakeven}">
-                                        </td>
-                                        <td>
-                                            <a th:href="@{/breakeven/{id}(id=${breakeven.getIdBreakeven()})}" class="btn btn-danger">Eliminar</a>
-                                            <a th:href="@{/breakeven/edit/{id}(id=${breakeven.getIdBreakeven()})}" class="btn btn-info">Editar</a>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
+                <div class="container-lg">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <div class="accordion mt-5" id="accordionExample">
+                                <div class="card">
+                                    <div class="card-header" id="headingOne">
+                                        <h2 class="clearfix mb-0">
+                                            <a class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><i class="material-icons">+</i>Primeros pasos</a>
+                                        </h2>
+                                    </div>
+                                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <div class="media">
+                                                <img src="https://static2.abc.es/media/bienestar/2022/04/23/nunca-es-tarde-nueva-vida-2-kA2F--510x349@abc.jpg" class="mr-3" alt="Home" style="width: 70px; height: 70px;">
+                                                <div class="media-body">
+                                                    <h4 class="mt-0">¿Cómo empezar?</h4>
+                                                    <p>Es necesario comprender que es un modelo de negocio lean canvas y saber también que bloque figura como principal para un correcto diligenciamiento.</p>
+                                                    <ol>
+                                                        <li>Clientes: Definir a quien va dirigido nuestro producto o propuesta, pueden ser de tres a 4 personas y/o clientes.</li>
+                                                        <li>Problema: Nos enfocamos en el problema, para así poder elaborar un mejor producto y así encontrarle una solución.</li>
+                                                        <li>Propuesta de valor: Aquí es donde buscamos una forma innovadora o diferente de captar y atraer al cliente.</li>
+                                                        <li>En High concept vemos como esta idea puede solucionar algo en una escala mayor en pocas palabras como beneficia la humanidad.</li>
+                                                        <li>Solución: Es donde buscamos la viabilidad al problema para así resolverlo.</li>
+                                                        <li>Canales: Los canales son los medios que se utilizarán para llevar u ofrecer el producto a los clientes.</li>
+                                                            <ul>
+                                                                <li>Inbound: Atraer con contenido relevante, pero de forma más permisiva, por ejemplo: ofertas y blogs.</li>
+                                                                <li>Outbound: Es similar solo que aquí no te piden permiso, solo se ofrecen de manera más directa el producto, ejemplo: Spam, publicidad.</li>
+                                                            </ul>
+                                                        <li>Costos: Identificamos ahora posibles inversiones o deudas para poder obtener de mejor manera ganancias y recuperar los ingresos.</li>
+                                                        <li>Ingresos: En ingresos se identifica donde se va a conseguir ese ingreso que lo incentiva, ejemplo: anuncios.</li>
+                                                        <li>Métricas: Describimos las actividades más importantes de la empresa que ayuden a tomar mejores decisiones. Se crea un análisis para llegar a ello.</li>
+                                                        <li>Ventaja injusta: Es eso que no tiene la competencia y ayude a marcar la diferencia.</li>
+                                                    </ol>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header" id="headingThree">
+                                        <h2 class="mb-0">
+                                            <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><i class="material-icons">+</i>Navegación en la plataforma</a>
+                                        </h2>
+                                    </div>
+                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <div class="media">
+                                                <img src="https://img.freepik.com/vector-gratis/ilustracion-concepto-manual-instrucciones_114360-2929.jpg?w=2000" class="mr-3" alt="Home" style="width: 70px; height: 70px;">
+                                                <div class="media-body">
+                                                    <p>Al inicio encontrarás la estructura vacía del lienzo la cual se llenará únicamente al trabajar la información directamente en los módulos los cuales se ubican en un menú lateral del lado izquierdo de tu pantalla.</p>
+                                                    <p>Antes de continuar, se considerará la misma acción en cuanto a la gestión de los siguientes módulos o bloques del canvas:</p>
+                                                    <ul>
+                                                        <li>Problema.</li>
+                                                        <li>Segmento.</li>
+                                                        <li>UVP – Sin contar el submódulo (ODS).</li>
+                                                        <li>Solución.</li>
+                                                        <li>Métricas.</li>
+                                                        <li>Ventaja injusta.</li>
+                                                        <li>En los módulos ya descritos al principio aparecerá el formulario de ingreso de los datos.</li>
+                                                        <li>Luego de llenar el campo aparecerá la opción de eliminar y actualizar los datos ingresados.</li>
+                                                        <li>Si se desea actualizar volverás al formulario de ingreso de datos y podrás realizar el cambio de los datos.</li>
+                                                    </ul>
+                                                    <small>Nota: Cabe afirmar que todos los cambios o gestión de cada módulo se verá reflejada en el lienzo lean canvas.</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
 
 
 

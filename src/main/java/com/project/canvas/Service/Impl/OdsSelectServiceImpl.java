@@ -20,18 +20,5 @@ public class OdsSelectServiceImpl implements OdsSelectService {
         return odsSelectRepository.findAll();
     }
 
-    @Override
-    public void saveOdsSelect(OdsSelect odsSelect) {
-        odsSelectRepository.save(odsSelect);
-    }
 
-    @Override
-    public OdsSelect searchXId(Long id) {
-        return odsSelectRepository.findById(id).get();
-    }
-
-    @Override
-    public void eliminar(Long id) {
-        odsSelectRepository.deleteById(id);
-    }
 }

@@ -145,19 +145,19 @@
             </span>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" th:href="@{/configuration}">
                     <i class="mdi mdi-settings menu-icon"></i>
                     <span class="menu-title">Panel de configuración</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" th:href="@{/filter}">
                     <i class="mdi mdi-tooltip-edit menu-icon"></i>
                     <span class="menu-title">Personalizar Vista</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" th:href="@{/tutorial}">
                     <i class="mdi mdi-file-document-box menu-icon"></i>
                     <span class="menu-title">Tutorial de uso</span>
                 </a>
@@ -277,12 +277,11 @@
                     <img src="https://blog.explorerbyx.org/wp-content/uploads/2020/11/ODS-ci%CC%81rculo.png" class="img-fluid " alt="Responsive image">
                     <div class="card">
                         <div class="card-body">
-                            <form class="forms-sample" th:action="@{/ods}" th:object="${odsselect}" method="POST">
-                                <div class="form-group">
-                                    <input type="hidden" th:field="*{idOdsSelect}" class="form-control"/>
-                                    <label class="text-center">Descripción de la meta</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" th:field="*{descripcionOdsSelect}" placeholder="Ingresa tu descripción aquí."></textarea>
-                                </div>
+                            <h5>⚠️¡Para tener en cuenta!   ⚠️</h5>
+                            <p>Cada meta tiene una numeración la cual se basa en el objetivo padre.</p>
+                            <small>Por ejemplo: 1. → 1.1</small>
+                            <hr>
+                            <form class="forms-sample py-4" th:action="@{/ods}" th:object="${odssave}" method="POST">
                                 <div class="form-group" >
                                     <label class="text-center">Objetivos de Desarrollo Sostenible</label>
                                     <select th:field="*{ods}" class="form-select form-select-sm" aria-label=".form-select-sm example">
@@ -290,6 +289,16 @@
                                                 th:each="ods:${ods}"
                                                 th:value="${ods.idOds}"
                                                 th:text="${ods.descripcionOds}"
+                                        />
+                                    </select>
+                                </div>
+                                <div class="form-group" >
+                                    <label class="text-center">Metas de los objetivos</label>
+                                    <select th:field="*{odsSelect}" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                        <option class="option-ods-goals"
+                                                th:each="odsselect:${odsselect}"
+                                                th:value="${odsselect.idOdsSelect}"
+                                                th:text="${odsselect.descripcionOdsSelect}"
                                         />
                                     </select>
                                 </div>
@@ -326,6 +335,20 @@
 <script th:src="@{/js/file-upload.js}"></script>
 <script th:src="@{/js/typeahead.js}"></script>
 <script th:src="@{/js/select2.js}"></script>
+
+<script>
+    function myFunction() {
+        let options = document.getElementsByClassName("option-ods-goals");
+        let limite = 50;
+
+        for(let i = 0; i < options.length; i++){
+            options[i].setAttribute('title', options[i].innerText); // para poder ver el texto completo en el hover del elemento antes de cortarlo
+            options[i].innerText = options[i].innerText.slice(0, limite) + '...';
+        }
+    }
+
+    window.onload = () => myFunction();
+</script>
 <!-- End custom js for this page -->
 
 </body>

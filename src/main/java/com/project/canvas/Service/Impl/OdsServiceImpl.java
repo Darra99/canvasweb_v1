@@ -14,7 +14,6 @@ public class OdsServiceImpl implements OdsService {
     @Autowired
     private OdsRepository odsRepository;
 
-
     @Override
     public List<Ods> listAllOds() {
         return odsRepository.findAll();

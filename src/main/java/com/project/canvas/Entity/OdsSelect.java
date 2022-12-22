@@ -1,5 +1,7 @@
 package com.project.canvas.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
@@ -20,6 +22,7 @@ public class OdsSelect implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "id_ods")
+    @JsonIgnore
     private Ods ods;
 
 

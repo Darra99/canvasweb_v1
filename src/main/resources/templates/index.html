@@ -462,10 +462,10 @@
                                                 <div class="modal-header">
                                                     <h4 class="modal-title font-weight-bold" id="exampleModalLabel">Mis objetivos sostenibles</h4>
                                                 </div>
-                                                <div class="modal-body" style="display: flex; flex-direction: column; align-items: center;" th:each="odsselect : ${odsselect}">
-                                                    <img th:src="${odsselect.ods.imgOds}" class="img-thumbnail" width="80px" height="80px">
+                                                <div class="modal-body" style="display: flex; flex-direction: column; align-items: center;" th:each="odssave : ${odssave}">
+                                                    <img th:src="${odssave.ods.imgOds}" class="img-thumbnail" width="80px" height="80px">
                                                     <br>
-                                                    <h5 class="card-text text-truncate" data-bs-toggle="tooltip" data-bs-placement="top" th:attr="title=${odsselect.getDescripcionOdsSelect}" th:text="${odsselect.getDescripcionOdsSelect}"></h5>
+                                                    <h5 class="card-text text-truncate" data-bs-toggle="tooltip" data-bs-placement="top" th:attr="title=${odssave.odsSelect.getDescripcionOdsSelect}" th:text="${odssave.odsSelect.getDescripcionOdsSelect}" style="white-space: inherit"></h5>
                                                     <hr>
                                                 </div>
                                                 <div class="modal-footer">

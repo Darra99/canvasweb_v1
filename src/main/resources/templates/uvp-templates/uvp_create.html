@@ -145,19 +145,19 @@
             </span>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" th:href="@{/configuration}">
                     <i class="mdi mdi-settings menu-icon"></i>
                     <span class="menu-title">Panel de configuración</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" th:href="@{/filter}">
                     <i class="mdi mdi-tooltip-edit menu-icon"></i>
                     <span class="menu-title">Personalizar Vista</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" th:href="@{/tutorial}">
                     <i class="mdi mdi-file-document-box menu-icon"></i>
                     <span class="menu-title">Tutorial de uso</span>
                 </a>
@@ -277,7 +277,7 @@
                     <img src="https://i0.wp.com/merkaideo.com/wp-content/uploads/2019/07/propuestavalorPORTADA.png?fit=800%2C500&ssl=1" class="img-fluid " alt="Responsive image">
                     <div class="card">
                         <div class="card-body">
-                            <form class="forms-sample" th:action="@{/uvp}" th:object="${uvp}" method="POST">
+                            <form class="forms-sample py-2" th:action="@{/uvp}" th:object="${uvp}" method="POST">
                                 <div class="form-group">
                                     <label for="exampleFormControlTextarea1">Descripción</label>
                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" th:field="*{descripcionUvp}" placeholder="Ingresa tu descripción aquí."></textarea>
@@ -287,7 +287,42 @@
                                 </div>
                                 <button class="btn btn-primary mr-2"> Guardar </button>
                             </form>
+                            <hr>
+                            <h5>Ejemplo de Propuesta Única de Valor</h5>
+                            <p class="card-text">“El producto ofrece el beneficio para que el público deje de sufrir con el problema o los problemas por medio del método X.”</p>
                         </div>
+                    </div>
+                </div>
+
+
+                <h1 class="text-black text-center pb-3">¿Cómo puedo hacer mi Propuesta Única de Valor?</h1>
+
+                <div class="card">
+                    <h5 class="card-header bg-info">Pasos a seguir...</h5>
+                    <div class="card-body">
+                        <h5 class="card-title">¿Quién eres y que te hace diferente?</h5>
+                        <p class="card-text">Debes definir tu identidad de marca, saber a profundidad quién eres, cuáles son tus valores, tus fortalezas, tus debilidades y sobre todo, tu factor diferenciador.</p>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">¿Sabes a quién le vas a vender?</h5>
+                        <p class="card-text">Identificar muy bien a tu público objetivo es fundamental, eso te va a permitir saber o tener un aproximado de:</p>
+                        <ul>
+                            <li>¿Qué necesitan?</li>
+                            <li>¿Cuándo lo necesitan?</li>
+                            <li>¿Qué quieren?</li>
+                            <li>¿Cómo necesitan esa solución?</li>
+                        </ul>
+                        <p>Y sobre todo, saber quién es tu público objetivo te va a permitir adaptar tus ofertas a sus necesidades y poder lograr causar un mayor impacto positivo; no es cuestión de vender y ya,
+                            el verdadero éxito de ventas se alcanza cuando sabes tocar muy bien los puntos de dolor de ellos y a su vez, saber cómo conectar emocionalmente.</p>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">¿Conoces a tu competencia?</h5>
+                        <p class="card-text">Para explotar ese factor diferenciador que tienes, debes conocer muy bien de qué quieres distanciarte, por eso estudiar quién es tu competencia es fundamental.
+                            Debes conocer sus propuestas de valor, qué necesidades están dejando de cubrir y qué errores podrían estar cometiendo.</p>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">¿Sabes qué conexión hay entre lo que ofreces y las necesidades o deseos de tu público objetivo?</h5>
+                        <p class="card-text">La Propuesta Única de valor se desarrolla pensando cuáles son los principales problemas o necesidades que tiene, o que no sabe que tiene tu público objetivo y cómo tu le ofreces la mejor solución.</p>
                     </div>
                 </div>
 

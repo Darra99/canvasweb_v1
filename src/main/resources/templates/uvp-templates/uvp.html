@@ -145,19 +145,19 @@
             </span>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" th:href="@{/configuration}">
                     <i class="mdi mdi-settings menu-icon"></i>
                     <span class="menu-title">Panel de configuración</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" th:href="@{/filter}">
                     <i class="mdi mdi-tooltip-edit menu-icon"></i>
                     <span class="menu-title">Personalizar Vista</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" th:href="@{/tutorial}">
                     <i class="mdi mdi-file-document-box menu-icon"></i>
                     <span class="menu-title">Tutorial de uso</span>
                 </a>
@@ -260,8 +260,80 @@
         </nav>
         <div class="main-panel">
             <div class="content-wrapper pb-0">
+
+
+
+        <div class="container py-2">
+            <!-- For Demo Purpose-->
+            <header class="text-center">
+                <h1 class="display-4">Propuesta Única de Valor</h1>
+                <p class="text-muted font-italic mb-0">Las empresas se distinguen con una PUV.</p>
+            </header>
+
+            <div class="py-5">
+                <div class="row">
+
+                    <div class="col-lg-6 mb-5">
+                        <!-- Collapse Panel 1--><a data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="true" aria-controls="collapseExample1" class="btn btn-primary btn-block py-2 shadow-sm with-chevron">
+                        <p class="d-flex align-items-center justify-content-between mb-0 px-3 py-2"><strong class="text-uppercase">¿Qué es la propuesta única de valor?</strong><i class="fa fa-angle-down"></i></p>
+                    </a>
+                        <div id="collapseExample1" class="collapse shadow-sm show">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="font-italic mb-0 text-muted">Es lo que hace única la propiedad de un producto, servicio o proveedor. La propiedad que se encarga de que los consumidores escojan un determinado producto, servicio o proveedor por encima de una alternativa similar.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 mb-5">
+                        <!-- Collapse Panel 2-->
+                        <button data-toggle="collapse" data-target="#collapseExample2" role="button" aria-expanded="true" aria-controls="collapseExample2" class="btn btn-success btn-block py-2 shadow-sm with-chevron">
+                            <p class="d-flex align-items-center justify-content-between mb-0 px-3 py-2"><strong class="text-uppercase">¿Para qué sirve la Propuesta Única de Valor?</strong><i class="fa fa-angle-down"></i></p>
+                        </button>
+                        <div id="collapseExample2" class="collapse shadow-sm show">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="font-italic mb-0 text-muted">Una Propuesta Única de Valor es la mejor manera de facilitar el proceso de compra o contratación para el cliente, porque desde el principio le dices lo que haces y por qué deben elegirte.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 mb-5">
+                        <!-- Collapse Panel 3--><a data-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="true" aria-controls="collapseExample3" class="btn btn-warning btn-block p2-3 shadow-sm with-chevron">
+                        <p class="d-flex align-items-center justify-content-between mb-0 px-3 py-2"><strong class="text-uppercase">¿Qué beneficios tiene una Propuesta de Única Valor?</strong><i class="fa fa-angle-down"></i></p>
+                    </a>
+                        <div id="collapseExample3" class="collapse shadow-sm show">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="font-italic mb-0 text-muted">Una Propuesta Única de Valor puede ser tu mejor herramienta para que tu público objetivo te recuerde; quizás olviden el nombre, pero no olvidan donde compraron el jabón que más les gustaba.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 mb-5">
+                        <!-- Collapse Panel 4--><a data-toggle="collapse" href="#collapseExample4" role="button" aria-expanded="true" aria-controls="collapseExample4" class="btn btn-danger btn-block p2-3 shadow-sm with-chevron">
+                        <p class="d-flex align-items-center justify-content-between mb-0 px-3 py-2"><strong class="text-uppercase">Atrae al público correcto</strong><i class="fa fa-angle-down"></i></p>
+                    </a>
+                        <div id="collapseExample4" class="collapse shadow-sm show">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="font-italic mb-0 text-muted">Tener una Propuesta Única de Valor bien construida es esencial para tu negocio. Además de posicionar la marca de manera sólida y mostrar autoridad en el mercado,
+                                        es una guía para que toda la empresa trabaje en función de un solo objetivo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
                 <div class="page-header flex-wrap">
-                    <h3 class="mb-0">Propuesta Única de Valor<span class="pl-0 h6 pl-sm-2 text-muted d-inline-block">Aquí puedes ver tus anotaciones del módulo...</span>
+                    <h3 class="mb-0">Mis Propuestas<span class="pl-0 h6 pl-sm-2 text-muted d-inline-block">Aquí puedes ver tus anotaciones del bloque.</span>
                     </h3>
                     <div class="d-flex">
                         <button type="button" class="btn btn-primary btn-icon-text">
@@ -294,8 +366,8 @@
                 <div class="col-lg-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title text-center">Propuesta única de valor</h4>
-                            <p class="card-description">Es una sencilla frase por medio de la cual una empresa comunica a sus clientes potenciales cómo puede satisfacer sus necesidades de una manera superior por medio de los bienes y servicios que ofrece al mercado.
+                            <h4 class="card-title text-center">PUV</h4>
+                            <p class="card-description">Edita, elimina y agrega cualquier anotación en el bloque.
                             </p>
                             <div class="table-responsive">
                                 <table class="table table-striped">

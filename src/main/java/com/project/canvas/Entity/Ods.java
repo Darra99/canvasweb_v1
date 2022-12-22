@@ -3,6 +3,8 @@ package com.project.canvas.Entity;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "ods")
@@ -23,18 +25,24 @@ public class Ods implements Serializable {
     private String imgOds;
 
 
+    @OneToMany(mappedBy="ods", cascade=CascadeType.MERGE, fetch=FetchType.LAZY)
+    private List<OdsSelect> odsSelects = new ArrayList<>();
+
+
     public Ods() {
     }
 
-    public Ods(String descripcionOds, String imgOds) {
+    public Ods(String descripcionOds, String imgOds, List<OdsSelect> odsSelects) {
         this.descripcionOds = descripcionOds;
         this.imgOds = imgOds;
+        this.odsSelects = odsSelects;
     }
 
-    public Ods(Long idOds, String descripcionOds, String imgOds) {
+    public Ods(Long idOds, String descripcionOds, String imgOds, List<OdsSelect> odsSelects) {
         this.idOds = idOds;
         this.descripcionOds = descripcionOds;
         this.imgOds = imgOds;
+        this.odsSelects = odsSelects;
     }
 
     public Long getIdOds() {
@@ -59,5 +67,13 @@ public class Ods implements Serializable {
 
     public void setImgOds(String imgOds) {
         this.imgOds = imgOds;
+    }
+
+    public List<OdsSelect> getOdsSelects() {
+        return odsSelects;
+    }
+
+    public void setOdsSelects(List<OdsSelect> odsSelects) {
+        this.odsSelects = odsSelects;
     }
 }

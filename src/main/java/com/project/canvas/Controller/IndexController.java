@@ -28,7 +28,7 @@ public class IndexController {
     @Autowired
     private MetricsService metricsService;
     @Autowired
-    private OdsSelectService odsSelectService;
+    private OdsSaveService odsSaveService;
     @Autowired
     private ProblemService problemService;
     @Autowired
@@ -56,7 +56,7 @@ public class IndexController {
         model.addAttribute("howsolveproblem",howSolveProblemService.howSolveProblemListAll());
         model.addAttribute("income",incomeService.incomeListAll());
         model.addAttribute("metrics",metricsService.metricsListAll());
-        model.addAttribute("odsselect",odsSelectService.listAllOdsSelect());
+        model.addAttribute("odssave",odsSaveService.listAllOdsSave());
         model.addAttribute("problem",problemService.problemListAll());
         model.addAttribute("segment",segmentService.segmentListAll());
         model.addAttribute("socialimpact",socialImpactService.socialImpactListAll());

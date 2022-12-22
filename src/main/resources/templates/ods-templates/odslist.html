@@ -145,19 +145,19 @@
             </span>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" th:href="@{/configuration}">
                     <i class="mdi mdi-settings menu-icon"></i>
                     <span class="menu-title">Panel de configuración</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" th:href="@{/filter}">
                     <i class="mdi mdi-tooltip-edit menu-icon"></i>
                     <span class="menu-title">Personalizar Vista</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" th:href="@{/tutorial}">
                     <i class="mdi mdi-file-document-box menu-icon"></i>
                     <span class="menu-title">Tutorial de uso</span>
                 </a>
@@ -318,23 +318,19 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr th:each="odsselect : ${odsselect}">
-                                                <td style="word-wrap: break-word;
-                                                    word-break: break-all;
-                                                    white-space: normal !important;
-                                                    text-align: justify;">
-                                                    <span th:text="${odsselect.ods.descripcionOds}"></span>
-                                                    <img th:src="${odsselect.ods.imgOds}" class="img-thumbnail"/>
+                                            <tr th:each="odssave : ${odssave}">
+                                                <td>
+                                                    <img th:src="${odssave.ods.imgOds}" class="img-thumbnail"/>
                                                 </td>
                                                 <td style="word-wrap: break-word;
                                                     word-break: break-all;
                                                     white-space: normal !important;
                                                     text-align: justify;"
-                                                    th:text="${odsselect.descripcionOdsSelect}">
+                                                    th:text="${odssave.odsSelect.descripcionOdsSelect}">
                                                 </td>
                                                 <td>
-                                                    <a th:href="@{/ods/delete/{id}(id=${odsselect.getIdOdsSelect()})}" class="btn btn-danger">Eliminar</a>
-                                                    <a th:href="@{/ods/edit/{id}(id=${odsselect.getIdOdsSelect()})}" class="btn btn-info">Editar</a>
+                                                    <a th:href="@{/ods/delete/{id}(id=${odssave.getIdOdsSave()})}" class="btn btn-danger">Eliminar</a>
+                                                    <a th:href="@{/ods/edit/{id}(id=${odssave.getIdOdsSave()})}" class="btn btn-info">Editar</a>
                                                 </td>
                                             </tr>
                                             </tbody>
